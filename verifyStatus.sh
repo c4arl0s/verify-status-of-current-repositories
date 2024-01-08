@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # find .      execute find in current directory
 # -name "*"   all files by name
 # -type       
