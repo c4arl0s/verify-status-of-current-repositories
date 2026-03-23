@@ -1,47 +1,39 @@
-# verify-repo-status.sh
+# verify-repo-status
 
-This script was created to remember me if a repository has changes or files are untracked over a directory of projects.
+Script to check all first-level directories in your current path and report:
+- directories that are not Git repositories
+- repositories with untracked files
+- repositories with pending changes
 
-Console output:
+## Install
 
-```console
-$ ./verify-repo-status.sh                                          
-./prn repository is untracked
-./SupportProjects is not a git repository
-./ValidateData repository has changes
-./language-validator repository has changes
-./2Agile-methodologies-for-mobile-development repository is untracked
-./Images repository has changes
-./ChronoList repository has changes
-./4ThePowerOfAlgorithmsInObjectiveC repository has changes
-./vid2gif is not a git repository
-./IntermediateTableViews repository has changes
-./Locymaps repository is untracked
-./if repository is untracked
-./SavingData repository has changes
-./trad3 repository has changes
-./Algorithms repository has changes
-./7Localization repository is untracked
-```
-
-# Code
+From the repository root:
 
 ```bash
-#!/bin/bash
+chmod +x install.sh
+./install.sh
+```
 
-find . -name "*" -type d -maxdepth 1 | while read directory_name; do
-  git --git-dir=${directory_name}/.git --work-tree=${directory_name} status >/dev/null 2>&1
-  if [ $? -ne 0 ]; then
-    echo "${directory_name} is not a git repository"
-    continue
-  fi
+The installer creates a symbolic link:
 
-  repository_status=$(git --git-dir=${directory_name}/.git --work-tree=${directory_name} status | grep "\buntracked\|no\b" | tail -1)
-    
-  if [[ "${repository_status}" == *"untracked"* ]]; then
-    echo "${directory_name} repository is untracked"
-  elif [[ "${repository_status}" == *"no"* ]]; then 
-    echo "${directory_name} repository has changes"
-  fi
-done
+```text
+/usr/local/bin/verify-repo-status -> <repo>/verify-repo-status.sh
+```
+
+Because `/usr/local/bin` usually requires admin permissions, the script uses `sudo`.
+
+## Usage
+
+Go to the parent directory that contains your repositories and run:
+
+```bash
+verify-repo-status
+```
+
+Example output:
+
+```console
+./SupportProjects is not a git repository
+./ValidateData repository has changes
+./2Agile-methodologies-for-mobile-development repository is untracked
 ```
