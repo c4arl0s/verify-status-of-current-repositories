@@ -1,11 +1,11 @@
-# VerifyStatusRepositoriesScript
+# verify-repo-status.sh
 
-This script was created to remember me if a repository has changes or files are untracked
+This script was created to remember me if a repository has changes or files are untracked over a directory of projects.
 
 Console output:
 
 ```console
-$ ./verifyStatus.sh                                          
+$ ./verify-repo-status.sh                                          
 ./prn repository is untracked
 ./SupportProjects is not a git repository
 ./ValidateData repository has changes
