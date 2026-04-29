@@ -1,4 +1,4 @@
-# verify-repo-status
+# statusfy
 
 Script to check all first-level directories in your current path and report:
 - directories that are not Git repositories
@@ -14,26 +14,29 @@ chmod +x install.sh
 ./install.sh
 ```
 
-The installer creates a symbolic link:
-
-```text
-/usr/local/bin/verify-repo-status -> <repo>/verify-repo-status.sh
-```
-
-Because `/usr/local/bin` usually requires admin permissions, the script uses `sudo`.
-
 ## Usage
 
-Go to the parent directory that contains your repositories and run:
+Navigate to the parent directory that contains your repositories and run:
 
 ```bash
-verify-repo-status
+statusfy
 ```
 
-Example output:
+Output example:
 
 ```console
-./SupportProjects is not a git repository
-./ValidateData repository has changes
-./2Agile-methodologies-for-mobile-development repository is untracked
+./BackgroundContent repository is untracked
+./Chapter11StateMachines repository has changes
+./24Callbacks-ObjectiveC repository has changes
+./7PointersAndParameters repository has changes
+./CreateBinariesInXcode repository has changes
+./VIM repository has changes
+./8ConflictingConstraints repository has changes
+./MemoryLeak repository has changes
+./9UsingSQLite_CoreDataWithSwift repository has changes
+./5ViewControllers repository has changes
+./neptuno-nodeJS repository has changes
+./ViewControllerLifeCycle repository has changes
+./iOS_Animations_Lotties repository has changes
+./8MoreDataTypes repository is untracked
 ```
