@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-SCRIPT_NAME="verify-repo-status"
-SOURCE_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/verify-repo-status.sh"
+SCRIPT_NAME="statusfy"
+SOURCE_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/statusfy.sh"
 TARGET_LINK="/usr/local/bin/${SCRIPT_NAME}"
 
 if [[ ! -f "${SOURCE_SCRIPT}" ]]; then
